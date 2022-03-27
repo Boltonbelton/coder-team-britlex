@@ -1,0 +1,1158 @@
+@import "./variables";
+@import "./mixins";
+@import "./container";
+@import "./fonts";
+@import "./normalize";
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: $white;
+}
+header{
+    @include flexStyle(flex, center, center, nowrap);
+    width: 100%;
+    position: fixed;
+    z-index: 99;
+    height: 100px;
+    background-color: $white;
+    .header__container{
+        width: 80%;
+        position: relative;
+        @include flexStyle (flex, space-between, baseline, nowrap);
+        .header__logo{
+            @include default;
+            @include font-style;
+            @include flex;
+            font-size: 36px;
+            color: $dark-black;
+            .header-span{
+                color: $grey;
+            }
+        }
+        .header__list{
+            @include flex;
+            .header__items{
+                @include default;
+                @include flex-ai;
+                margin-right: 30px;
+                .header__link{
+                    @include default;
+                    color: $black;
+                    @include font-style;
+                    font-weight: 500;
+                    font-size: 20px;    
+                }
+            }
+        }
+        .header__button{
+            padding: 17px 57px;
+            @include default;
+            @include font-style;
+            font-size: 24px;
+            color: $dark-black;
+            border: 2px solid #263238;
+            border-radius: 5px;
+        }
+    }
+}
+.luba{
+    position: absolute;
+    margin-left: 700px;
+    display: block;
+    .check{
+        visibility: hidden;
+    }
+    .check:checked #fa-bars{
+        background-image: url(./img/image-1.png);
+    }
+    .check:checked ~ .mobile__list{
+        transform: translateX(-300px);
+        opacity: 1;
+    }
+    .mobile__list{
+        transform: translateX(-500px);
+        opacity: 0;
+        transition: 0.5s ease-out;
+        background-color: #555;
+        margin-top: 30px;
+        width: 200px;
+        border: 2px solid $black;   
+        border-top-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        background-color: $black;
+    }
+    .mobile__item  {
+        list-style: none;
+        width: 200px;
+        padding-top: 15px;
+        text-align: center;
+    }
+    .mobile__item:hover{
+        background-color: white;
+        cursor: pointer;
+    }
+    .mobile__item:hover .mobile__link{
+        background-color: white;
+        color: $black;
+        cursor: pointer;
+    }
+    .mobile__link{
+        text-decoration: none;
+        color: white;
+        @include font-style;
+        font-size: 20px;
+        color: $white;
+        width: 100%;
+        line-height: 45px;
+    }
+    .item-start{
+        border-top-left-radius: 15px;
+    }
+    .item-end{
+        border-bottom-right-radius: 15px;
+    }
+}
+.fa-solid{
+    visibility: hidden;
+    opacity: 0;
+}
+// Saytimizning header qism stillari nihoyasiga yetdi.
+.home__section{
+    @include flexStyle (flex, center, center, nowrap);
+    position: relative;
+    height: 800px;
+    top: 75px;
+    width: 100%;
+    .hs__container {
+        width: 80%;
+        @include flexStyle (flex, space-between, center, nowrap);
+        .hs__block{
+            .hs__text{
+                color: $dark-black;
+                font-size: 64px;
+                font-weight: 600;
+                width: 100px;
+                @include font-style;
+                @include flex;
+                align-items: center;
+                .image-1{
+                    width: 109px;
+                    height: 112px;
+                }
+            }
+            .hs__subtitle{
+                color: $grey;
+                font-size: 24px;
+                @include font-style;
+                margin-top: 40px;
+                margin-bottom: 61px;
+                height: 108px;
+                width: 632px;
+            }
+            .hs__button{
+                color: white;
+                padding: 32px 117px;
+                background-color: $black;
+                border-radius: 5px;
+                text-decoration: none;
+                font-size: 36px;
+                @include font-style;
+            }
+        }
+    }
+}
+// Saytimizning 'Home-section' qismi nihoyasiga yetdi.
+
+.four-block__section{
+    @include flexStyle (flex, center, center, nowrap);
+    flex-direction: column;
+    .fbc__text{
+        font-size: 48px;
+        @include font-style-bold;
+        padding: 70px;
+    }
+    .fbc__container{
+        width: 80%auto;
+        @include flex;
+        .fbc__block-1{
+            width: 435px;
+            height: 894px;
+            @include block-flex;
+            background-color: $block-color;
+        }
+        .fbc__container-2{
+            @include flex;
+        }
+        .fbc__block-2{
+            width: 434px;
+            height: 531px;
+            @include small-block;
+            background-color: $block-color;
+            margin: 0 18px;
+        }
+        .fbc__block-3{
+            width: 434px;
+            height: 531px;
+            @include block-flex;
+            background-color: $block-color;
+            .block-button-3{
+                position: relative;
+                bottom: 5px;
+            }
+        }
+        .fbc__block-4{
+            width: 885px;
+            height: 343px;
+            background-color: $block-color;
+            margin: 20px 0 0 18px;
+            @include flexStyle (flex, space-between, center, nowrap);
+            .fbc__text__block{
+                @include block-flex;
+            }
+        }
+        .block-text{
+            @include block-text;
+        }
+        .block-subtitle{
+            @include block-subtitle;
+        }
+        .listen-subtitle{
+            padding-top: 20px;
+            padding-bottom: 25px;
+        }
+        .block-button{
+            @include block-button;
+        }
+        .block-image{
+            margin: 0 auto;
+        }
+    }
+}
+// Saytimizning four-block__section qismi tugadi
+
+.about-us{
+    height: 700px;
+    @include flexStyle (flex, center, center    , nowrap);
+    .about__container{
+        width: 90%;
+        @include flex;
+        justify-content: space-around;
+        @include flex;
+        .about__block{
+            @include font-style-bold;
+            @include flex;
+            flex-direction: column;
+            justify-content: center;
+            .block-text{
+                font-size: 48px;
+            }
+            .about-subtitle{
+                width: 635px;
+                margin-top: 23px;
+                font-size: 23px;
+            }
+            .about-report{
+                @include flex;
+                margin: 60px 0px 20px 0;
+                .about__span{
+                    margin-right: 100px;
+                    .about-text-2{
+                        font-size: 48px;
+                        @include font-style-bold;
+                        text-align: center;
+                    }
+                    .about-subtitle-2{
+                        color: $grey;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}
+// Saytimizning about-section qism stillari nihoyasi yetdi.
+
+.pricing__section{
+    @include flexStyle (flex, center, center, nowrap);
+    flex-direction: column;
+    height: 600px;
+    margin-top: -100px;
+    .pc__text{
+        color: $dark-black;
+        @include font-style-bold;
+        font-size: 48px;
+        margin: 50px;
+    }
+    .pricing__container{
+        width: 90%;
+        height: 400px;
+        @include flexStyle (flex, space-evenly, baseline, nowrap);
+        @include flex;
+        .pricing__block{    
+            margin-right: 50px;
+            .image-9-text{
+                position: relative;
+                bottom: 23px
+            }
+            .spanp-12{
+                position: relative;
+                bottom: 20px
+            }
+            .image-10-text{
+                position: relative;
+                top: 30px;
+            }
+            .image-10-subtitle{
+                position: relative;
+                top: 25px;
+            }
+            .pricing-text{
+                @include font-style-bold;
+                color: $black;
+                font-size: 30px;
+                margin-bottom: 20px;
+            }
+            .pricing__subtitle{
+                @include font-style;
+                color: $grey;
+                font-size: 20px;
+                width: 430px;
+                margin-bottom: 29px
+            }
+            .pricing__span{
+                @include flex;
+                background-color: #EEEEEE;
+                align-items: center;
+                justify-content: center;
+                width: 240px;
+                height: 45px;
+                .pricing__span--text{
+                    color: $black;
+                    font-size: 30px;
+                    @include font-style;
+                    margin-right: 10px;
+                }
+                .pricing__span--subtitle{
+                    font-size: 18px;
+                    color: $grey;
+                    @include font-style;
+                }
+            }
+            .image-9-text{
+                margin-top: 25px;
+            }
+            .image-9-subtitle{
+                position: relative;
+                top: -25px;
+                margin-bottom: 60px;
+            }
+            .image-10-text{
+                margin-top: -30px;
+            }
+            .image-10-subtitle{
+                margin-bottom: 90px;
+            }
+        }
+    }
+}
+// Saytimizning pricing-section qismi tugadi
+
+.contact__section{
+    @include flexStyle (flex, center, center, nowrap);
+    height: 800px;
+    .contact__container{
+        width: 90%;
+        @include flex;
+        align-items: center;
+        padding-right: 15px;
+    }
+    .contact__block{
+        margin-right: 100px;
+        .contact__text{
+            @include font-style-bold;
+            color: $dark-black;
+            font-size: 48px;
+        }
+        .contact__subtitle{
+            font-size: 20px;
+            color: $grey;
+            @include font-style;
+            margin-top: 37px;
+            margin-bottom: 52px;
+        }
+        form{
+            @include flex;
+        }
+        .contact__input{
+            width: 450px;
+            height: 60px;
+            padding: 25px 30px;
+            margin-right: 10px;
+            @include font-style;
+        }
+        #contact__input::placeholder{
+            @include font-style;
+        }
+        .contact__submit{
+            color: white;
+            background-color: $black;
+            padding: 13px 75px;
+            outline: none;
+            border-radius: 12px;
+            border: 2px solid $black;
+            @include font-style;
+            font-size: 20px;
+        }
+    }
+}
+// Saytimizning contact__section qism stillari o'z nihoyasiga yetdi
+
+footer{
+    @include flexStyle (flex, center, center, nowrap);
+    height: 150px;
+   .footer__container{
+       border-top: 1px solid #C4C4C4;;
+       width: 80%;
+       @include flexStyle (flex, space-between, center, nowrap);
+        .hr{
+            width: 1600px;
+        }
+        .footer__logo{
+            color: $dark-black;
+            font-size: 36px;
+            @include font-style;
+            @include flex;
+        }
+        .footer__span{
+            color: $grey;
+            font-size: 36px;
+        }
+        .footer__list{
+            @include flex;
+            @include font-style;
+            color: $grey;
+        }
+        .footer__items{
+            font-size: 24px;
+        }
+   }
+}
+// Saytimizning footer qism stillari ham o'z nihoyasiga yetdi
+
+@media screen and (max-width : 992px)  {
+    #header__logo{
+        font-size: 30px;
+    }
+    #header__link{
+        font-size: 16px;
+    }
+    #header__button{
+        padding: 12px 40px;
+    }
+    #hs__text{
+        font-size: 48px;
+    }
+    .image-1{
+        width: 48px;
+        height: 58px;
+    }
+    #hs__subtitle{
+        font-size: 20px;
+        width: 372px;
+        height: 90;
+    }
+    #hs__button{
+        font-size: 24px;
+        padding: 22px 88px;
+    }
+    .image-2{
+        width: 460px;
+        height: 460px;
+    }
+    #fbc__text{
+        font-size: 36px;
+    }
+    #fbc__block-1{
+        width: 303px;
+        height: 696px;
+    }
+    #fbc__block-2{
+        width: 302px;
+        height: 441px;
+        margin-left: 13px;
+        margin-right: 12px;
+    }
+    #fbc__block-3{
+        width: 304px;
+        height: 442px;
+    }
+    #fbc__block-4{
+        width: 616px;
+        height: 241px;
+        margin-top: 13px;
+        margin-left: 13px;
+    }
+    .image-3{
+        width: 260px;
+        height: 260px;
+    }
+    .image-4{
+        width: 205px;
+        height: 205px;
+    }
+    .image-5{
+        width: 243px;
+        height: 162px;
+    }
+    .image-6{
+        width: 254px;
+        height: 169px;
+    }
+    #block-text{
+        font-size: 22px;
+    }
+    #block-subtitle{
+        font-size: 14px;
+    }
+    #block-button{
+        width: 196px;
+        height: 57px;
+        line-height: 57px;
+        font-size: 18px;
+    }
+    .about__container{
+        @include flex;
+        justify-content: space-between;
+    }
+    #pricing__subtitle{
+        margin-bottom: 40px;
+    }
+    .about__block{
+        margin-left: 50px;
+    }
+    #about-text{
+        font-size: 36px;
+    }
+    #about-subtitle{
+        font-size: 16px;
+    }
+    #about-text-2{
+        font-size: 30px;
+    }
+    #about-subtitle-2{
+        font-size: 16px;
+    }
+    #image-7{
+        width: 336px;
+        height: 336px;
+    }
+    #about-span{
+        margin-right: 70px;
+    }
+    #pc__text{
+        font-size: 36px;
+    }
+    .image-8{
+        width: 222px;
+        height: 222px;
+    }
+    .image-9{
+        width: 267px;
+        height: 195px;
+    }
+    .image-10{
+        width: 242px;
+        height: 242px;
+    }
+    .image-11{
+        width: 242px;
+        height: 242px;
+    }
+    #pricing-text{
+        font-size: 22px;
+    }
+    #pricing__subtitle{
+        font-size: 16px;
+        width: 275px;
+    }
+    #pricing__span--text{
+        font-size: 24px;
+    }
+    #pricing__span--subtitle{
+        font-size: 16px;
+    }
+    .spanp-12{
+        position: relative;
+        bottom: 33px;
+    }
+    .span-5{
+        position: relative;
+        top: -17px;
+    }
+    .pricing__block{
+        width: 350px;
+        margin: 0;
+        margin-right: 20px;
+    }
+    .image-11{
+        width: 291px;
+        height: 259px;
+    }
+    .contact__section{
+        height: 580px;
+    }
+    #contact__text{
+        font-size: 36px;
+    }
+    #contact__subtitle{
+        font-size: 16px;
+    }
+    #contact__input{
+        width: 323px;
+        height: 60px;
+    }
+    #contact__submit{
+        padding: 13px 56px;
+    }
+    #footer__logo, #footer__span{
+        font-size: 30px;
+    }
+    #footer__items{
+        font-size: 16px;
+    }
+}   
+// Saytimizning 992px o'lchamidagi responsive qismi tayyor bo'ldi
+@media screen and (max-width : 767px)  {
+    .luba{
+        position: absolute;
+        margin-left: 700px;
+        display: block;
+        .check:checked ~ .mobile__list{
+            transform: translateX(-280px);
+            opacity: 1;
+        }
+        .mobile__list{
+            transform: translateX(10px);
+            margin-top: 30px;
+        }
+    }
+    #hs__text{
+        font-size: 36px;
+    }
+    .fa-bars{
+        font-size: 25px;
+        visibility: visible;
+        opacity: 1;
+        position: relative;
+        right: 100px;
+        top: 10px
+    }
+    .header__list, #header__button{
+        display: none;
+        opacity: 0;
+    }
+    .image-1{
+        width: 50.95px;
+        height: 50.95px;    
+    }
+    .home__section{
+        height: 550px;
+    }
+    #hs__subtitle{
+        font-size: 16px;
+        height: 72px;
+        width: 300px;
+    }
+    #hs__button{
+        font-size: 18px;
+        padding: 19px 67px;
+    }
+    .image-2{
+        width: 352px;
+        height: 352px;
+    }
+    #fbc__text{
+        width: 100%;
+        font-size: 30px;
+        height: 100px;
+        @include flexStyle (flex, center, center, nowrap);
+        
+    }
+    #fbc__block-1{
+        width: 224px;
+        height: 662px;
+    }
+    #fbc__block-2{
+        width: 227px;
+        height: 441px;
+        margin-left: 13px;
+        margin-right: 12px;
+    }
+    #fbc__block-3{
+        width: 228px;
+        height: 443px;
+    }
+    #fbc__block-4{
+        width: 462px;
+        height: 210px;
+        margin-top: 13px;
+        margin-left: 13px;
+    }
+    .image-3{
+        width: 214px;
+        height: 214px;
+    }
+    .image-4{
+        width: 200px;
+        height: 200px;
+    }
+    .image-5{
+        width: 216px;
+        height: 144px;
+    }
+    .image-6{
+        width: 202px;
+        height: 134px;
+    }
+    #block-text{
+        font-size: 20px;
+    }
+    #block-subtitle{
+        font-size: 11.2px;
+    }
+    #block-button{
+        width: 178px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 16px;
+    }
+    .about__container{
+        @include flex;
+        justify-content: space-between;
+    }
+    .pc__text{
+        margin: 20px;
+    }
+    .about__block{
+        margin-left: 50px;
+    }
+    #about-text{
+        font-size: 30px;
+    }
+    #about-subtitle{
+        font-size: 14px;
+        width: 321px;
+        height: 210px;
+    }
+    #about-text-2{
+        font-size: 22px;
+    }
+    #about-subtitle-2{
+        font-size: 13px;
+    }
+    #image-7{
+        width: 295px;
+        height: 295px;
+    }
+    #about-span{
+        margin-right: 40px;
+    }
+    .about-report{
+        position: relative;
+        bottom: 50px;
+    }
+    .about__container{
+        align-items: center;
+    }
+    .about-us{
+    height: 550px;   
+    }
+    #pc__text{
+        font-size: 30px;
+    }
+    .image-8{
+        width: 197px;
+        height: 197px;
+    }
+    .image-9{
+        width: 219px;
+        height: 168px;
+    }
+    .image-10{
+        width: 210px;
+        height: 210px;
+    }
+    .image-11{
+        width: 242px;
+        height: 242px;
+    }
+    #pricing-text{
+        font-size: 20px;
+        height: 56px;
+        width: 150px;   
+    }
+    .pricing__container{
+        padding-left: 20px;
+        padding-left: 60px;
+    }
+    .pricing__block{
+        width: 250px;
+    }
+    #pricing__subtitle{
+        font-size: 14px;
+        height: 84px;
+        width: 200px;
+    }
+    #pricing__span--text{
+        font-size: 22px;
+    }
+    #pricing__span--subtitle{
+        font-size: 16px;
+    }
+    #pricing__span{
+        width: 205px;
+        height: 45px;
+    }
+    .image-11{
+        width: 217.86px;
+        height: 194.12px;
+        transform: translateX(80px);
+        position: relative;
+        top: 20px;
+    }   
+    .contact__container{
+        @include flex;
+        justify-content: space-evenly;
+    }   
+    #contact__text{
+        font-size: 30px;
+    }
+    #contact__subtitle{
+        font-size: 14px;
+    }
+    #contact__input{
+        width: 283px;
+        height: 50px;
+    }
+    #contact__submit{
+        padding: 10px 45px;
+    }
+    #footer__logo, #footer__span{
+        font-size: 30px;
+    }
+    #footer__items{
+        font-size: 16px;
+    }
+}   
+@media screen and (max-width : 575px)  {
+    body{
+        max-width: 575px;
+        overflow-x: hidden;
+    }
+    .luba{
+        position: absolute;
+        margin-left: 700px;
+        display: block;
+        .check:checked ~ .mobile__list{
+            transform: translateX(-420px);
+            opacity: 1;
+        }
+        .mobile__list{
+            transform: translateX(-200px);
+            margin-top: 30px;
+        }
+    }
+    .fa-bars{
+        font-size: 25px;
+        visibility: visible;
+        opacity: 1;
+        position: relative;
+        right: 300px;
+        font-size: 50px;
+        font-size: 35px;
+        bottom: 30px;
+    }
+    #header__logo{
+        font-size: 40px;
+    }
+    #hs__text{
+        font-size: 40px;
+    }
+    .header__list, #header__button{
+        display: none;
+        opacity: 0;
+    }
+    .image-1{
+        width: 50.95px;
+        height: 50.95px;    
+    }
+    .hs__container{
+        @include flex;
+            flex-direction: column-reverse;
+    }
+    .image-1{
+        display: none;
+    }
+    #hs__text{
+        font-size: 34px;
+        width: 491px;
+        text-align: center;
+    }
+    #hs__subtitle{
+        font-size: 16px;
+        width: 500px;
+        height: 60px;
+        text-align: center;
+    }
+    #hs__button{
+        font-size: 18px;
+        padding: 24px 100px;
+        position: relative;
+        left: 100px;
+    }
+    .image-2{
+        width: 424px;
+        height: 424px;
+    }
+    .four-block__section{
+        height: 1200px;
+    }
+    .four-block__section{
+        height: 1500px
+    }
+    .fbc__container{
+        width: 480px;
+        height: 1100px;
+        @include flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        position: relative;
+    }
+    #fbc__text{
+        width: 100%;
+        font-size: 30px;
+        height: 100px;
+        }
+    #fbc__block-1{
+        width: 50%;
+        height: 534px;
+    }
+    #fbc__block-2{
+        width: 240px;
+        height: 534px;
+        // margin-left: 13px;
+        // margin-right: 12px; 
+    }
+    #fbc__block-3{
+        width: 240px;
+        height: 534px;
+        position: absolute;
+        left: 0;
+        top: 545px;
+    }
+    #fbc__block-4{
+        width: 240px;
+        height: 534px;
+        @include flex;
+        flex-direction: column-reverse;
+        @include flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: space-evenly;
+    }   
+    .image-3{
+        width: 214px;
+        height: 214px;
+    }
+    .image-4{
+        width: 200px;
+        height: 200px;
+    }
+    .image-5{
+        width: 216px;
+        height: 144px;
+    }
+    .image-6{
+        width: 202px;
+        height: 134px;
+    }
+    #block-text{
+        font-size: 20px;
+    }
+    #block-subtitle{
+        font-size: 11.2px;
+    }
+    #block-button{
+        width: 178px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 16px;
+    }
+    .about__container{
+        height: 800px;
+        @include flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: center;
+    }
+    .pricing__section{
+        position: relative;
+    }
+    .pc__text{
+        margin: 20px;
+        position: absolute;
+        top: 120px;
+    }
+    .about__block{
+        margin-left: 50px;
+    }
+    #about-text{
+        font-size: 30px;
+        text-align: center;
+    }
+    #about-subtitle{
+        font-size: 14px;
+        width: 500px;
+        height: 147px;
+        color: $grey;
+        text-align: center;
+        padding-right: 10px;
+    }
+    #about-text-2{
+        font-size: 24px;
+    }
+    #about-subtitle-2{
+        font-size: 14px;
+    }
+    #image-7{
+        width: 352px;
+        height: 352px;
+    }
+    .about-report{
+        position: relative;
+        left: 50px;
+    }
+    #about-span{
+        margin-right: 100px;
+    }
+    .about-report{
+        position: relative;
+        bottom: 50px;
+    }
+    .about__container{
+        align-items: center;
+    }
+    .about-us{
+    height: 550px;   
+    }
+    #pc__text{
+        font-size: 30px;
+    }
+    .image-8{
+        width: 291px;
+        height: 291px;
+    }
+    .image-9{
+        width: 314px;
+        height: 241px;
+    }
+    .image-10{
+        width: 253px;
+        height: 253px;
+    }
+    .pricing__section{
+        height: 1880px;
+    }
+    #pricing-text{
+        font-size: 24px;
+        height: 56px;
+        width: 300px;   
+        text-align: center;
+    }
+    .pricing__container{
+        height: 1760px;
+        width: 575px;
+        padding-left: 20px;
+        padding-left: 60px;
+        @include flex;
+        flex-direction: column;
+    }
+    .pricing__block{
+        width: 350px;
+        position: relative;
+        align-self: center;
+        margin-top: 50px;
+        @include flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    #pricing__subtitle{
+        font-size: 14px;
+        height: 42px;
+        width: 350px;
+        text-align: center;
+    }
+    #pricing__span--text{
+        font-size: 22px;
+    }
+    #pricing__span--subtitle{
+        font-size: 16px;
+    }
+    #pricing__span{
+        width: 205px;
+        height: 45px;
+    }
+    .image-11{
+        width: 312px;
+        height: 281px;
+        position: relative;
+        top: 20px;
+        transform: translateY(-200px);
+    }   
+    .contact__section{
+        height: 800px
+    }
+    .contact__container{
+        @include flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center ;
+        position: relative;
+    }   
+    .contact__block{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        left: 50px;
+    }
+    #contact__text{
+        font-size: 30px;
+        position: absolute;
+        top: -80px;
+    }
+    #contact__subtitle{
+        font-size: 16px;
+        height: 72px;
+        width: 500px;
+        text-align: center;
+    }
+    #contact__input{
+        width: 283px;
+        height: 50px;
+    }
+    #contact__submit{
+        padding: 10px 45px;
+    }
+    #footer__logo, #footer__span{
+        font-size: 30px;
+    }
+    #footer__items{
+        font-size: 12px;
+    }
+}   
